@@ -1,0 +1,18 @@
+let’s review the link created when converting between an array and ArrayList.
+4: String[] array = { "gerbil", "mouse" }; // [gerbil, mouse]
+5: List<String> list = Arrays.asList(array); // returns fixed size list
+6: list.set(1, "test"); // [gerbil, test]
+7: array[0] = "new"; // [new, test]
+8: String[] array2 = (String[]) list.toArray(); // [new, test]
+9: list.remove(1); // throws UnsupportedOperationException
+
+Lines 6 and 7 show that you can change the elements in
+either the array or the List. Changes are reflected in both, since they are backed by the
+same data.
+
+line 9 shows that list is not resizable because it is backed by the underlying
+array.
+
+
+You’d have to convert the array to a
+List and then the List to a Set
