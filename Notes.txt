@@ -1,4 +1,4 @@
-let’s review the link created when converting between an array and ArrayList.
+letâ€™s review the link created when converting between an array and ArrayList.
 4: String[] array = { "gerbil", "mouse" }; // [gerbil, mouse]
 5: List<String> list = Arrays.asList(array); // returns fixed size list
 6: list.set(1, "test"); // [gerbil, test]
@@ -14,5 +14,31 @@ line 9 shows that list is not resizable because it is backed by the underlying
 array.
 
 
-You’d have to convert the array to a
+Youâ€™d have to convert the array to a
 List and then the List to a Set
+
+===========================================
+
+Autoboxing automatically converts a primitive to the corresponding wrapper classes
+unboxing automatically converts a wrapper class back to a primitive
+
+3: List<Integer> numbers = new ArrayList<Integer>();
+4: numbers.add(1);
+5: numbers.add(new Integer(3));
+6: numbers.add(new Integer(5));
+7: numbers.remove(1);
+8: numbers.remove(new Integer(5));
+9: System.out.println(numbers);
+
+The answer is it leaves just [1].
+
+line 4 relies on autoboxing
+
+The remove() method is overloaded. One signature takes
+an int as the index of the element to remove. The other takes an Object that should be
+removed.
+
+Java also converts the wrapper classes to primitives via unboxing:
+int num = numbers.get(0);
+
+============================================
